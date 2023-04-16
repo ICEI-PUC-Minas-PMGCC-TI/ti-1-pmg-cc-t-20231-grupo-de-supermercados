@@ -1,18 +1,24 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10780181&assignment_repo_type=AssignmentRepo)
-# Nome do projeto
-Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
+# Aplicativo 'No Precinho'
+
+Nosso grupo tem como finalidade elaborar uma proposta baseada em software para lidar com o problema de comparação de preços de supermercado.
+
+Nosso objetivo principal é economizar o tempo e dinheiro dos consumidores, disponibilizando preços e locais para a compra de produtos.
+
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Victor Hugo Braz
+* Daniel Dias Pereira
+* Gustavo Garcia Macedo 
+* Igor Silva de Paiva Paschoalino 
+* Paulo Ribeiro da Silva Junior 
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Rommel Vieira Carneiro 
+* Ilo Amy Saldanha Rivero
+
 
 ## Instruções de utilização
 
