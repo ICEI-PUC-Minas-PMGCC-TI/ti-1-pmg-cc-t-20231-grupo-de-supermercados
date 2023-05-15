@@ -1,0 +1,25 @@
+{
+"clientes": [
+      {
+        "id": "112h5F88K9",
+        "nome": "Eurico Hernandes",
+        "email": "Eurico@gmail.com",
+        "telefone": "(31)9 9999-9999",
+        "senha": "Portolucha"
+      },
+      {
+        "id": "112h5Fajsk",
+        "nome": "Leonora Silva",
+        "email": "sim@gmail.com",
+        "telefone": "(31)9 9999-9999",
+        "senha": "sorocaba"
+      },
+      {
+        "id": "112ouhm&85",
+        "nome": "Jorge",
+        "email": "dois@gmail.com",
+        "telefone": "(31)9 9999-9999",
+        "senha": "morte"
+      }
+    ]
+  }
