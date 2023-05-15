@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="templatestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Titulo</title>
+</head>
+<body>
+
+    <header width="device-width">
+        <p class="templogo"> P </p>
+    </header>
+
+    <main>
+        <div class="geral">
+            <div class="box">
+
+                <div class="tituloConta">
+                    <span>Faça login</span>
+                </div>
+
+                <form id="formularioLogin" class="formulario">
+
+                    <label class="tipos">Endereço de Email:</label>
+                    <input class="imput requied" type="email" id="campoEmail" name="email" placeholder="email@gmail.com" oninput="emailValidate()">
+
+
+
+                    <label class="tipos">Digite sua senha:</label>
+                    <input class="imput requied" type="password" id="campoSenha" name="senha" placeholder="Digite sua senha" oninput="mainPasswordValidate()">
+
+                    <span class="span-requied invalido">Email ou senha inválidos</span>
+                
+
+                    <input id="btnEntrar" class="enviarFormulario" type="submit" value="Entrar">
+
+                </form>
+
+                <div class="Registrar">
+                    <span>Não tem conta ainda? <a href="Register.html">Crie sua conta</a></span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+<script src="javaScriptLogin.js"></script>
+</body>
+</html>
