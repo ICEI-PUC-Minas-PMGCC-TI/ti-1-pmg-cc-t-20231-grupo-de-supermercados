@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+}
+
+/*
+
+######### CABECALHO
+
+*/
+
+header {
+    display: flex;
+    background: cyan;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+}
+
+.templogo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    margin: 25px;
+    align-items: center;
+}
+
+.headericon {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+/*
+
+############# CORPO
+
+*/
+.favoritetext {
+    display: inline;
+    color: rgb(255, 136, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+/* DISPLAY PRINCIPAL DO PRODUTO*/
+
+.productdisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pimage{
+    max-width: 40%;
+}
+
+.productdisplay img {
+    width: 75%;
+    padding: 25px;
+}
+
+.productinfo {
+    text-align: center;
+}
+
+.productname {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: 700;
+}
+
+.preprice {
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: green;
+    font-weight: 600;
+}
+
+.price {
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: green;
+    font-weight: 600;
+}
+
+/* TODOS OS PREÇOS */
+.displayFooter {
+    background: rgb(70, 180, 143);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    text-align: center;
+    padding: 5px;
+    font-weight: 600;
+    border-top: 2px solid black;
+}
+
+/* FILTRAR */
+
+.filterbox {
+    display: flex;
+    justify-content: space-evenly;
+    background: cyan;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.filtertext {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    padding: 5px;
+    font-weight: 600;
+}
+
+.filterbox select {
+    color: red;
+}
+
+.productbox {
+    margin: 7px;
+    border: 2px grey solid;
+    border-radius: 2px;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.productbox img{
+    width: 100px;
+    height: 50px;
+}
+
+.proddesc {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.superm{
+    display: inline;
+    font-size: smaller;
+    color: grey;
+}
+
+.prodname{
+    font-weight: 600;
+}
+
+.pricetext p{
+    display: inline;
+    font-size: medium;
+    color: green;
+}
+
+.distancetext p{
+    display: inline;
+    font-size: smaller;
+    color: grey;
+}
+
+/*
+
+############# FOOTER/RODAPÉ
+
+*/
+
+footer {
+    display: flex;
+    background: cyan;
+    justify-content: space-between;
+    border-top: 2px solid black;
+}
+
+footer a {
+    padding: 15px;
+}

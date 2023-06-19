@@ -1,0 +1,57 @@
+{
+	"produtos": [
+		{
+			"id": 0,
+			"name": "Maca",
+			"tags": [
+				"Frutas",
+				"Alimentos"
+			]
+		},
+		{
+			"id": 1,
+			"name": "Gatorade",
+			"tags": [
+				"Bebidas",
+				"Energeticos"
+			]
+		},
+		{
+			"id": 2,
+			"name": "Biscoitos-Polvilho",
+			"tags": [
+				"Doces",
+				"Alimentos"
+			]
+		},
+		{
+			"id": 3,
+			"name": "Sabao-Homo",
+			"tags": [
+				"Limpeza"
+			]
+		},
+		{
+			"id": 4,
+			"name": "Azeite",
+			"tags": [
+				"Alimentos"
+			]
+		},
+		{
+			"id": 5,
+			"name": "Bala-Chita",
+			"tags": [
+				"Doces",
+				"Alimentos"
+			]
+		},
+		{
+			"id": 6,
+			"name": "Pedra-de-Crack",
+			"tags": [
+				"Entorpecentes"
+			]
+		}
+	]
+}

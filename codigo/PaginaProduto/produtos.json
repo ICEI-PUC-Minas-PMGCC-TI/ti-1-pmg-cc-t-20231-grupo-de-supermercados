@@ -1,0 +1,28 @@
+{
+	"produtos": [
+		{
+			"id": 0,
+			"name": "Maca",
+			"tags": [
+				"Frutas",
+				"Alimentos"
+			]
+		},
+		{
+			"id": 1,
+			"name": "Gatorade",
+			"tags": [
+				"Bebidas",
+				"Energeticos"
+			]
+		},
+		{
+			"id": 2,
+			"name": "Biscoitos-Polvilho",
+			"tags": [
+				"Doces",
+				"Alimentos"
+			]
+		}
+	]
+}
