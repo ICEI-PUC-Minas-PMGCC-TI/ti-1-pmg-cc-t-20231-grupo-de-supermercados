@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+}
+
+/*
+
+######### CABECALHO
+
+Gustavo Garcia: Deixei apenas a logo, uma vez que minha tela é uma tela de cadastro e vem pre página principal e suas funções
+*/
+
+header {
+    display: flex;
+    background: cyan;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+.templogo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    margin: 25px;
+    align-items: center;
+}
+
+
+/*
+
+############# CORPO
+
+*/
+
+
+.geral {     /* container para centralizar os itens dentro dele */
+    width: 100%;
+    height: 100vh;
+    background: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background-color: lightgray;
+    display: block;
+    width: 400px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.box form{
+    display: flex;
+    flex-direction: column;
+}
+
+.box input[type=text] {
+    margin-bottom: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.enviarFormulario{
+    align-self: self-end;
+    padding: 15px;
+    background-color: #4040ff;
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.EscolheArquivo{
+    align-self: self-start;
+    padding: 15px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    
+}
+
+.entrar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tituloConta
+{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: larger;
+    margin-bottom: 25px;
+    font-weight: bolder;
+}
+
+.formulario span{
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+
+main{
+	height: 500px;
+}
+
