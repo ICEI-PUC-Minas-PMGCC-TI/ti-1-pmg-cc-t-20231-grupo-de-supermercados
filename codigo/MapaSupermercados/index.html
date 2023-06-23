@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Mapa</title>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <header width="device-width">
+        <a class="headericon" style="font-size:24px"><i class="fa fa-bars"></i></a>
+        <p class="templogo"> P </p>
+        <a class="headericon" style="font-size:24px"><i class="fa fa-search"></i></a>
+    </header>
+
+    <div class="container">
+        <div id="map"></div>
+    </div>
+
+    <div class="filtros">   
+        <h3>Caracteristicas:</h3>
+        <select name="CARACTERISTICAS2" id="caracteristicasP">
+            <option value="2.0" selected>--Escolha--</option>
+            <optgroup label="Caracteristicas">
+                <option value="2.1" >HORTIFRUTI</option>
+                <option value="2.2">AÇOGUE</option>
+                <option value="2.3">PADARIA</option>
+                <option value="2.4">ADEGA</option>
+            </optgroup>
+            <optgroup label="Estacionamento">
+                <option value="1.1">COM ESTACIONAMENTO</option>
+                <option value="1.2">SEM ESTACIONAMENTO</option>
+            </optgroup>
+            <optgroup label="Ordenação">
+                <option value="3.1">ALFABÉTICA</option>
+                <option value="3.2">ALFABÉTICA INVERSA</option>
+                <option value="3.3">PONTUAÇÃO</option>
+            </optgroup>
+        </select>
+
+
+    </div>
+
+    <div class="lista" id="lista">
+        <!--  <div class="SuperM">
+            <img src="imagem1.png">
+            <div class="detalhes">
+                <h2>Porta</h2>
+                <h3>Porta</h3>
+                <h4>Estrela</h4>
+            </div>
+            <div class="CBotao">
+                <button class="btn" id="btn">Marcar</button>
+            </div>
+        </div> -->
+    </div>
+
+    <footer width="device-width">
+        <a style="font-size:24px"><i class="fa fa-home"></i></a>
+        <a style="font-size:24px"><i class="fa fa-map"></i></a>
+        <a style="font-size:24px"><i class="fa fa-star"></i></a>
+        <a style="font-size:24px"><i class="fa fa-clipboard"></i></a>
+        <a style="font-size:24px"><i class="fa fa-paper-plane"></i></a>
+    </footer>
+
+ <script src="JavaScript.js"></script> 
+</body>
+
+</html>
