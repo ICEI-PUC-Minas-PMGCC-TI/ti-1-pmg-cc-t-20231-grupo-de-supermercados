@@ -1,0 +1,36 @@
+{
+	"supermercados": [
+		{
+			"name": "SuperSeu",
+			"superID": 1,
+			"mercadorias": [
+				{
+					"name": "product1placeholder",
+					"id": 1,
+					"price": 10.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 2,
+					"price": 2.99
+				}
+			]
+		},
+		{
+			"name": "CarreFila",
+			"superID": 2,
+			"mercadorias": [
+				{
+					"name": "product1placeholder",
+					"id": 1,
+					"price": 2.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 0,
+					"price": 3.49
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,74 @@
+{
+	"supermercados": [
+		{
+			"displayname": "SuperSeu",
+			"name": "superseu",
+			"superID": 1,
+			"superIMG": "supernosso",
+			"superEndereço": "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
+			"superHoras": "Abre às 7:00, Fecha às 20:00.",
+			"mercadorias": [
+				{
+					"name": "product1placeholder",
+					"id": 1,
+					"price": 10.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 0,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 3,
+					"price": 15.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 2,
+					"price": 2.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 5,
+					"price": 6.99
+				}
+			]
+		},
+		{
+			"displayname": "CarreFila",
+			"name": "carrefila",
+			"superID": 2,
+			"superIMG": "carrefour",
+			"superEndereço": "R. Jacui, 214, Floresta, Belo Horizonte - MG 30121-210",
+			"superHoras": "Aberto 24 Horas por dia.",
+			"mercadorias": [
+				{
+					"name": "product1placeholder",
+					"id": 1,	
+					"price": 2.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 2,
+					"price": 4.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 6,
+					"price": 29.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 4,
+					"price": 15.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 0,
+					"price": 3.49
+				}
+			]
+		}
+	]
+}
