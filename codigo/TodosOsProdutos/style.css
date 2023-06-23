@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    justify-content: space-between;
+}
+
+
+/*
+CABECALHO
+*/
+
+header {
+    display: flex;
+    background: cyan;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+}
+
+.templogo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    margin: 25px;
+    align-items: center;
+}
+
+.headericon {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+/*
+CORPO
+*/
+
+main{
+	height: 500px;
+}
+
+.container {
+
+    background-color: rgb(153, 185, 185);
+    margin: 50px auto;
+    border: 2px solid black ;
+    width: 45%;
+    height: 450px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px ;
+    padding: 10px;
+    overflow-y: scroll;
+    
+}
+
+
+.container form {
+    background-color: white;
+    width: 99%;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.container form input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.container form i {
+    padding: 0 10px;
+}
+
+.produto {
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.produto img {
+    width: 80px;
+    border-radius: 5px;
+}
+
+.detalhes {
+
+    width: 100%;
+    margin: 0 10%;
+    
+ padding: 10px;
+ 
+}
+
+.container .lista {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
+}
+
+/*
+FOOTER/RODAPÉ
+*/
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    background: cyan;
+    justify-content: space-between;
+    border-top: 2px solid black;
+}
+
+footer a {
+    padding: 15px;
+}
