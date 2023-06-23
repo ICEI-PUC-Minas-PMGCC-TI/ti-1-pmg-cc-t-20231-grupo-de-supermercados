@@ -1,0 +1,115 @@
+{"Supermercados": [
+    {
+      "código": 1,
+      "nome": "SuperNosso Salgado Filho",
+      "Endereço": "Av. Teresa Cristina, 6175 - Salgado Filho, Belo Horizonte - MG, 30550-390",
+      "latitude": "-43.98497184217737",
+      "longitude": "-19.939840150170255",
+      "imagem": "imagem1.png",
+      "pontuação": "1",
+      "caracteristicas": [
+        {
+            "estacionamento": "sim",
+            "açogue": "sim",
+            "padaria": "sim",
+            "hortifruti": "nao",
+            "adega": "sim"
+        }
+      ]
+    
+    },
+    {
+      "código": 2,
+      "nome": "Bem Viver",
+      "Endereço": "R. Gávea, 88 - Jardim America, Belo Horizonte - MG, 30421-340",
+      "latitude": "-43.97595109342288",
+      "longitude": "-19.939092617235104",
+      "imagem": "imagem2.png",
+      "pontuação": "4",
+      "caracteristicas": [
+        {
+            "estacionamento": "sim",
+            "açogue": "sim",
+            "padaria": "sim",
+            "hortifruti": "sim",
+            "adega": "nao"
+        }
+      ]
+    },
+    {
+      "código": 3,
+      "nome": "DIA Coração Eucarístico",
+      "Endereço": "Av. Pres. Juscelino Kubitschek, Nº4769 - Vila Oeste, Belo Horizonte - MG, 30535-550",
+      "latitude": "-43.98768278493398",
+      "longitude": "-19.92580657270007",
+      "imagem": "imagem3.png",
+      "pontuação": "3",
+      "caracteristicas": [
+        {
+            "estacionamento": "sim",
+            "açogue": "nao",
+            "padaria": "sim",
+            "hortifruti": "sim",
+            "adega": "nao"
+
+        }
+      ]
+    },
+    {
+      "código": 5,
+      "nome": "Supermercados BH",
+      "Endereço": "Av. Silva Lobo, 577 - Prado, Belo Horizonte - MG, 30411-259",
+      "latitude": "-43.972259240635935",
+      "longitude": "-19.929744630266114",
+      "imagem": "imagem4.png",
+      "pontuação": "4",
+      "caracteristicas": [
+        {
+            "estacionamento": "sim",
+            "açogue": "sim",
+            "padaria": "nao",
+            "hortifruti": "sim",
+            "adega": "sim"
+
+        }
+      ]
+    },
+    {
+      "código": 6,
+      "nome": "Apoio Mineiro Silva Lobo",
+      "Endereço": "Av. Silva Lobo, 900 - Nova Suíça, Belo Horizonte - MG, 30421-198",
+      "latitude": "-43.972458614058496",
+      "longitude": "-19.933198718747818",
+      "imagem": "imagem5.png",
+      "pontuação": "4",
+      "caracteristicas": [
+        {
+            "estacionamento": "sim",
+            "açogue": "nao",
+            "padaria": "nao",
+            "hortifruti": "sim",
+            "adega": "nao"
+
+        }
+      ]
+    },
+    {
+      "código": 7,
+      "nome": "Epa Supermercados",
+      "Endereço": "R. Joaquim Nabuco, 208 - Nova Suíça, Belo Horizonte - MG, 30460-040",
+      "latitude": "-43.97809324611461",
+      "longitude": "-19.933039336901615",
+      "imagem": "imagem6.png",
+      "pontuação": "3",
+      "caracteristicas": [
+        {
+            "estacionamento": "nao",
+            "açogue": "sim",
+            "padaria": "sim",
+            "hortifruti": "sim",
+            "adega": "nao"
+        }
+      ]
+    }
+  ]
+}
