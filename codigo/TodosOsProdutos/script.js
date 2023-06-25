@@ -1,38 +1,11 @@
-let obj = {
-  "lista de produtos": [
-    {
-      "código": 1,
-      "nome": "Gatorade de Tangerina",
-      "marca": "Gatorade",
-      "preço": "R$" + "6.50",
-      "imagem": "gatorade.jpg",
-      "favorito": false
-    },
-    {
-      "código": 2,
-      "nome": "Nesfit de Limao",
-      "marca": "Nestle",
-      "preço": "R$" + "5.00",
-      "imagem": "nesfit.png",
-      "favorito": false
-    },
-    {
-      "código": 3,
-      "nome": "Detergente Clear",
-      "marca": "Ype",
-      "preço": "R$" + "3.50",
-      "imagem": "detergente.png",
-      "favorito": false
-    }
-  ]
-};
+window.onload = async () => {
+  const response = await fetch('../../assets/db/produtos.JSON'); // Faz a solicitação para o arquivo JSON
+  const obj = await response.json(); // Converte a resposta em formato JSON
 
-// preencher html com produtos do json
-window.onload = () => {
   const productContainer = document.getElementById("lista");
 
-  obj["lista de produtos"].forEach((product) => {
-    const productName = product.nome;
+  obj["produtos"].forEach((product) => {
+    const productName = product.name;
     const productPrice = product.preço;
     const productImage = product.imagem;
 
@@ -40,7 +13,7 @@ window.onload = () => {
     divElement.classList.add("produto");
 
     const imgElement = document.createElement("img");
-    imgElement.src = productImage;
+    imgElement.src = `../../assets/images/${productImage}`;
 
     const favoritoElement = document.createElement("span");
     favoritoElement.classList.add("favorito");
