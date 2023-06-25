@@ -22,11 +22,11 @@ class MarketPos {
 // Simular produtos já em estoque por meio do JSON
 function simProducts() {
 	// Carregar lista de produtos template
-	$.getJSON("produtos.json", function (produtosData) {
+	$.getJSON("/../../assets/db/produtos.json", function (produtosData) {
 		//localStorage.setItem("produtos", JSON.stringify(produtosData));
 
 		// Carregar lista de supermercados template
-		$.getJSON("supermercados.json", function (supermercadosData) {
+		$.getJSON("/../../assets/db/supermercados.json", function (supermercadosData) {
 
 			// Passar o nome correto de cada prodto para cada supermercado que contenha o ID desse produto
 			let currentID = 0;
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const marketh = document.querySelector('.hourly');
 	marketh.textContent = market[0].smHours;
 
-	$("#smmage").attr("src", `images/${market[0].smImg}.jpg`);
+	$("#smmage").attr("src", `/../../assets/images/${market[0].smImg}.jpg`);
 
 	// Get the parent section element
 	const parentSection = document.querySelector('.productlist');
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// Set the innerHTML of the new div to the original productbox HTML code
 		newDiv.innerHTML = `
-    <img class="pimage" src="images/${market[0].smMerchandise[i].pName}.jpg">
+    <img class="pimage" src="/../../assets/images/${market[0].smMerchandise[i].pName}.jpg">
 
     <div class="proddesc">
 
