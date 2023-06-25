@@ -1,6 +1,4 @@
 
-
-
 /*
 
 ######### CABECALHO
@@ -42,10 +40,11 @@ body {
 
 .container {
     position: relative;
-    background-color: green;
+    background-color: white;
     width: 100%;
     height: 800px;
     padding-top: 10px;
+    zoom: 0.8;
 }
 
 
@@ -59,12 +58,15 @@ body {
 }
 
 .filtros{
-    background-color: blue;
+    background: cyan;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
     display: flex;
     width: 100%;
     height: 50px;
     justify-content: center;
     align-items: center;
+    zoom: 0.9;
 }
 
 .filtros select{
@@ -89,6 +91,7 @@ body {
 }
 
 .SuperM{
+    zoom: 0.9;
     background-color: darkslategray;
     display: flex;
     width: 80%;
@@ -149,9 +152,64 @@ footer {
     background: cyan;
     justify-content: space-between;
     border-top: 2px solid black;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
 footer a {
     padding: 15px;
+    cursor: pointer;
 }
 
+/*
+
+############# popup
+
+*/
+.popup-fundo{
+    display: none;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup {
+    font-family: arial;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    zoom: 0.8;  
+}
+
+.popup a {
+    color: white;
+    cursor: pointer;
+    padding: 6px 10px;
+    text-decoration: none;
+    background-color: crimson;
+    font-size: large;
+}
+
+.popup img {
+    width: 500px;
+    height: 500px;
+}
+
+.popup h2 {
+    font-size:xx-large;
+}
+
+.popup-close{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor:pointer;
+}

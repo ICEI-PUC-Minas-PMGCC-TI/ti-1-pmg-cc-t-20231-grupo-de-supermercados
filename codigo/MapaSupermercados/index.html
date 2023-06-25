@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,28 +25,30 @@
         <div id="map"></div>
     </div>
 
-    <div class="filtros">   
+    <div class="filtros">
         <h3>Caracteristicas:</h3>
-        <select name="CARACTERISTICAS2" id="caracteristicasP">
-            <option value="2.0" selected>--Escolha--</option>
-            <optgroup label="Caracteristicas">
-                <option value="2.1" >HORTIFRUTI</option>
-                <option value="2.2">AÇOGUE</option>
-                <option value="2.3">PADARIA</option>
-                <option value="2.4">ADEGA</option>
-            </optgroup>
-            <optgroup label="Estacionamento">
-                <option value="1.1">COM ESTACIONAMENTO</option>
-                <option value="1.2">SEM ESTACIONAMENTO</option>
-            </optgroup>
-            <optgroup label="Ordenação">
-                <option value="3.1">ALFABÉTICA</option>
-                <option value="3.2">ALFABÉTICA INVERSA</option>
-                <option value="3.3">PONTUAÇÃO</option>
-            </optgroup>
+
+        <select name="CARACTERISTICAS" class="CARACTERISTICAS" id="CARACTERISTICAS">
+            <option value="" selected>--Escolha--</option>
+            <option value="hortifruti">HORTIFRUTI</option>
+            <option value="açogue">AÇOGUE</option>
+            <option value="padaria">PADARIA</option>
+            <option value="adega">ADEGA</option>
         </select>
 
+        <select name="CARACTERISTICAS2" id="CARACTERISTICAS2">
+            <option value="" selected>--Escolha--</option>
+            <option value="com">COM ESTACIONAMENTO</option>
+            <option value="sem">SEM ESTACIONAMENTO</option>
+        </select>
 
+        <select name="FILTRAGEM" class="FILTRO" id="FILTRO">
+            <option value="" selected>--Escolha--</option>
+            <option value="1">Alfabético</option>
+            <option value="2">Melhores avaliações</option>
+        </select>
+
+        <button class="btnFiltro" id="botaoFiltro" onclick="filtrar()">Filtrar</button>
     </div>
 
     <div class="lista" id="lista">
@@ -62,6 +65,21 @@
         </div> -->
     </div>
 
+    <div id="popup-container">
+        <!--
+            <div class="popup-fundo">
+                <div class="popup">
+                    <div class="popup-close">x</div>
+                    <div class="popup-conteudo">
+                        <h2>Pop-Up teste</h2>
+                        <p>algo</p>
+                        <a href="#">Veja mais</a>
+                    </div>
+                </div>
+            </div>
+        -->
+    </div>
+
     <footer width="device-width">
         <a style="font-size:24px"><i class="fa fa-home"></i></a>
         <a style="font-size:24px"><i class="fa fa-map"></i></a>
@@ -70,7 +88,7 @@
         <a style="font-size:24px"><i class="fa fa-paper-plane"></i></a>
     </footer>
 
- <script src="JavaScript.js"></script> 
+    <script src="NewJavaScript.js"></script>
 </body>
 
 </html>
