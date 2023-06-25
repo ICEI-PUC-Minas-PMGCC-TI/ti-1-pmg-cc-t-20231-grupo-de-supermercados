@@ -12,11 +12,11 @@ class prodPos {
 // Simular produtos já em estoque
 function simProducts() {
 	// Carregar lista de produtos template
-	$.getJSON("produtos.json", function (produtosData) {
+	$.getJSON("/../../assets/db/produtos.json", function (produtosData) {
 		//localStorage.setItem("produtos", JSON.stringify(produtosData));
 
 		// Carregar lista de supermercados template
-		$.getJSON("supermercados.json", function (supermercadosData) {
+		$.getJSON("/../../assets/db/supermercados.json", function (supermercadosData) {
 
 			// Passar o nome correto de cada prodto para cada supermercado que contenha o ID desse produto
 			let currentID = 0;
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const avgprice = document.querySelector('.ppreco');
 	avgprice.textContent = average.toString();
 
-	$("#pimage").attr("src", `images/${positions[0].tnam}.jpg`);
+	$("#pimage").attr("src", `/../../assets/images/${positions[0].tnam}.jpg`);
 
 	const prodname = document.querySelector('.pname');
 	prodname.textContent = `${positions[0].tnam}`;
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// Set the innerHTML of the new div to the original productbox HTML code
 		newDiv.innerHTML = `
-    <img class="pimage" src="images/${positions[0].tnam}.jpg">
+    <img class="pimage" src="/../../assets/images/${positions[0].tnam}.jpg">
 
     <div class="proddesc">
 

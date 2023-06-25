@@ -3,6 +3,8 @@
 		{
 			"id": 0,
 			"name": "Maca",
+			"imagem": "Maca.jpg",
+			"favorito": false,
 			"tags": [
 				"Frutas",
 				"Alimentos"
@@ -11,6 +13,8 @@
 		{
 			"id": 1,
 			"name": "Gatorade",
+			"imagem": "Gatorade.jpg",
+			"favorito": false,
 			"tags": [
 				"Bebidas",
 				"Energeticos"
@@ -19,6 +23,8 @@
 		{
 			"id": 2,
 			"name": "Biscoitos-Polvilho",
+			"imagem": "Biscoitos-Polvilho.jpg",
+			"favorito": false,
 			"tags": [
 				"Doces",
 				"Alimentos"
@@ -27,6 +33,8 @@
 		{
 			"id": 3,
 			"name": "Sabao-Homo",
+			"imagem": "Sabao-Homo.jpg",
+			"favorito": false,
 			"tags": [
 				"Limpeza"
 			]
@@ -34,6 +42,8 @@
 		{
 			"id": 4,
 			"name": "Azeite",
+			"imagem": "Azeite.jpg",
+			"favorito": false,
 			"tags": [
 				"Alimentos"
 			]
@@ -41,6 +51,8 @@
 		{
 			"id": 5,
 			"name": "Bala-Chita",
+			"imagem": "Bala-Chita.jpg",
+			"favorito": false,
 			"tags": [
 				"Doces",
 				"Alimentos"
@@ -48,9 +60,12 @@
 		},
 		{
 			"id": 6,
-			"name": "Pedra-de-Crack",
+			"name": "Pernil",
+			"imagem": "Pernil.jpg",
+			"favorito": false,
 			"tags": [
-				"Entorpecentes"
+				"Alimentos",
+				"Carne"
 			]
 		}
 	]
