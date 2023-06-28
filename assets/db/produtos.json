@@ -4,7 +4,7 @@
 			"id": 0,
 			"name": "Maca",
 			"imagem": "Maca.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Frutas",
 				"Alimentos"
@@ -14,7 +14,7 @@
 			"id": 1,
 			"name": "Gatorade",
 			"imagem": "Gatorade.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Bebidas",
 				"Energeticos"
@@ -24,7 +24,7 @@
 			"id": 2,
 			"name": "Biscoitos-Polvilho",
 			"imagem": "Biscoitos-Polvilho.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Doces",
 				"Alimentos"
@@ -34,7 +34,7 @@
 			"id": 3,
 			"name": "Sabao-Homo",
 			"imagem": "Sabao-Homo.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Limpeza"
 			]
@@ -43,7 +43,7 @@
 			"id": 4,
 			"name": "Azeite",
 			"imagem": "Azeite.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Alimentos"
 			]
@@ -52,7 +52,7 @@
 			"id": 5,
 			"name": "Bala-Chita",
 			"imagem": "Bala-Chita.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Doces",
 				"Alimentos"
@@ -62,7 +62,7 @@
 			"id": 6,
 			"name": "Pernil",
 			"imagem": "Pernil.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Alimentos",
 				"Carne"

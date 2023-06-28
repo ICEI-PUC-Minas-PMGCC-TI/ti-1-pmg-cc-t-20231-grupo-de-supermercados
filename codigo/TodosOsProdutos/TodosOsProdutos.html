@@ -17,26 +17,33 @@
     </header>
 
     <main>
+        <div class="gustavo">
+            <div class="gustavo1">
+            <label for="show-favoritos">Mostrar somente favoritos</label>
+            <input type="checkbox" id="show-favoritos" onchange="filtro()">
+            </div>
+        </div>
+
         <div class="container">
             <form>
                 <i class="fa fa-search"></i>
                 <input type="text" name="" id="search-item" placeholder="Busque Produtos" onkeyup="search()">
-                <label for="show-favoritos">Mostrar somente favoritos</label>
-                <input type="checkbox" id="show-favoritos" onchange="search()">
+
             </form>
 
             <div class="lista" id="lista">
                 <!-- Produtos adicionados no JS -->
             </div>
         </div>
+
+        
     </main>
 
     <footer width="device-width">
-        <a style="font-size:24px"><i class="fa fa-home"></i></a>
-        <a style="font-size:24px"><i class="fa fa-map"></i></a>
-        <a style="font-size:24px"><i class="fa fa-star"></i></a>
-        <a style="font-size:24px"><i class="fa fa-clipboard"></i></a>
-        <a style="font-size:24px"><i class="fa fa-paper-plane"></i></a>
+        <a href="../../index.html" style="font-size:24px"><i class="fa fa-home"></i></a>
+        <a href="../MapaSupermercados/MapaSupermercados.html" style="font-size:24px"><i class="fa fa-map"></i></a>
+        <a href="TodosOsProdutos.html" style="font-size:24px"><i class="fa fa-clipboard"></i></a>
+        <a href="../PostagemIgor/Forum.html" style="font-size:24px"><i class="fa fa-paper-plane"></i></a>
     </footer>
 
     <script type="text/javascript" src="script.js"></script>
