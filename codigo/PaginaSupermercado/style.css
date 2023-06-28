@@ -91,6 +91,12 @@ header {
 }
 
 /* TODOS OS PREÇOS */
+
+.productbox a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent element */
+  }
+
 .displayFooter {
     background: rgb(70, 180, 143);
     font-family: Arial, Helvetica, sans-serif;
@@ -122,7 +128,7 @@ header {
     color: red;
 }
 
-.productbox {
+.productbox a {
     margin: 7px;
     border: 2px grey solid;
     border-radius: 2px;
@@ -131,12 +137,12 @@ header {
     justify-content: space-evenly;
 }
 
-.productbox img{
+.productbox a img{
     width: 100px;
     height: 50px;
 }
 
-.proddesc {
+a .proddesc {
     width: 30%;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
@@ -159,7 +165,7 @@ header {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.pricetext p{
+a .pricetext p{
     display: inline;
     font-size: medium;
     color: green;
