@@ -65,8 +65,87 @@
 			"favoritado": false,
 			"tags": [
 				"Alimentos",
-				"Carne"
+				"Carnes"
 			]
-		}
+		},
+		{
+			"id": 7,
+			"name": "Arroz",
+			"imagem": "Arroz.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Grãos"
+			]
+		  },
+		  {
+			"id": 8,
+			"name": "Leite",
+			"imagem": "Leite.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Laticinios"
+			]
+		  },
+		  {
+			"id": 9,
+			"name": "Feijao",
+			"imagem": "Feijao.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Grãos"
+			]
+		  },
+		  {
+			"id": 10,
+			"name": "Frango",
+			"imagem": "Frango.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Carnes"
+			]
+		  },
+		  {
+			"id": 11,
+			"name": "Linguica",
+			"imagem": "Linguica.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Carnes"
+			]
+		  },
+		  {
+			"id": 12,
+			"name": "Batata-Frita",
+			"imagem": "Batata-Frita.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos"
+			]
+		  },
+		  {
+			"id": 13,
+			"name": "Vinho",
+			"imagem": "Vinho.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Bebidas",
+			  "Alcool"
+			]
+		  },
+		  {
+			"id": 14,
+			"name": "Heineken",
+			"imagem": "Heineken.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Bebidas",
+			  "Alcool"
+			]
+		  }
 	]
 }
