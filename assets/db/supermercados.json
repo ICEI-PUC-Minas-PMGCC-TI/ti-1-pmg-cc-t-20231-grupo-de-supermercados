@@ -7,6 +7,18 @@
 			"superIMG": "supernosso",
 			"superEndereço": "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
 			"superHoras": "Abre às 7:00, Fecha às 20:00.",
+			"pontuação": "2",
+			"longitude": "-43.98497184217737",
+			"latitude": "-19.939840150170255",
+      		"caracteristicas": [
+        		{
+					"estacionamento": "nao",
+					"açogue": "sim",
+					"padaria": "sim",
+					"hortifruti": "nao",
+					"adega": "sim"
+				}
+      		],
 			"mercadorias": [
 				{
 					"name": "product1placeholder",
@@ -42,6 +54,18 @@
 			"superIMG": "carrefour",
 			"superEndereço": "R. Jacui, 214, Floresta, Belo Horizonte - MG 30121-210",
 			"superHoras": "Aberto 24 Horas por dia.",
+			"pontuação": "1",
+			"longitude": "-43.97595109342288",
+			"latitude": "-19.939092617235104",
+			"caracteristicas": [
+			  {
+				  "estacionamento": "sim",
+				  "açogue": "sim",
+				  "padaria": "sim",
+				  "hortifruti": "nao",
+				  "adega": "sim"
+			  }
+			],
 			"mercadorias": [
 				{
 					"name": "product1placeholder",
@@ -69,6 +93,53 @@
 					"price": 3.49
 				}
 			]
-		}
+		},
+		{
+			"displayname": "Bem Viver",
+			"name": "bemviver",
+			"superID": 3,
+			"superIMG": "BemViver",
+			"superEndereço": "R. Gávea, 88 - Jardim America, Belo Horizonte - MG, 30421-340",
+			"superHoras": "Abre às 7:00, Fecha às 20:00.",
+			"pontuação": "5",
+			"longitude": "-43.98768278493398",
+			"latitude": "-19.92580657270007",
+      		"caracteristicas": [
+        		{
+					"estacionamento": "sim",
+					"açogue": "nao",
+					"padaria": "sim",
+					"hortifruti": "sim",
+					"adega": "nao"
+				}
+      		],
+			"mercadorias": [
+				{
+					"name": "product1placeholder",
+					"id": 1,
+					"price": 10.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 0,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 3,
+					"price": 15.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 2,
+					"price": 2.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 5,
+					"price": 6.99
+				}
+			]
+		}	
 	]
 }
