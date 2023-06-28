@@ -28,7 +28,7 @@ const map = new ol.Map({
 */
 
 
-fetch('supermercados.json')
+fetch('../../assets/db/supermercados.json')
     .then(res => res.json())
     .then(data => {
         for (let i = 0; i < data.length; i++) {
@@ -38,7 +38,7 @@ fetch('supermercados.json')
 
 
 
-fetch('supermercados.json')
+fetch('../../assets/db/supermercados.json')
     .then(res => res.json())
     .then(data => {
         let str = '';
@@ -46,7 +46,7 @@ fetch('supermercados.json')
             let item = data.supermercados[i];
 
             str += `<div class="SuperM">
-            <img src="${item.superIMG}">
+            <img src="../../assets/images/${item.superIMG}">
             <div class="detalhes">
                 <h2>${item.displayname}</h2>
                 <h3>${item.superEndereço}</h3>
@@ -68,7 +68,7 @@ const selectEstac = document.getElementById('CARACTERISTICAS2');
 
 
 function filtrar() {
-    fetch('supermercados.json')
+    fetch('../../assets/db/supermercados.json')
         .then(res => res.json())
         .then(data => {
             let str = '';
@@ -86,7 +86,7 @@ function filtrar() {
                     if (Categoria === '') {
                         if (Estacionar === '') {
                             str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -101,7 +101,7 @@ function filtrar() {
                         else if (Estacionar === 'sem') {
                             if (item.caracteristicas[0].estacionamento === 'nao') {
                                 str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -117,7 +117,7 @@ function filtrar() {
                         else if (Estacionar === 'com') {
                             if (item.caracteristicas[0].estacionamento === 'sim') {
                                 str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -135,7 +135,7 @@ function filtrar() {
                         if (item.caracteristicas[0].hortifruti === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -150,7 +150,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -166,7 +166,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -185,7 +185,7 @@ function filtrar() {
                         if (item.caracteristicas[0].açogue === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -200,7 +200,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -216,7 +216,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -235,7 +235,7 @@ function filtrar() {
                         if (item.caracteristicas[0].padaria === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -250,7 +250,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -266,7 +266,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -285,7 +285,7 @@ function filtrar() {
                         if (item.caracteristicas[0].adega === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -300,7 +300,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -316,7 +316,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -343,7 +343,7 @@ function filtrar() {
                     if (Categoria === '') {
                         if (Estacionar === '') {
                             str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -358,7 +358,7 @@ function filtrar() {
                         else if (Estacionar === 'sem') {
                             if (item.caracteristicas[0].estacionamento === 'nao') {
                                 str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -374,7 +374,7 @@ function filtrar() {
                         else if (Estacionar === 'com') {
                             if (item.caracteristicas[0].estacionamento === 'sim') {
                                 str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -392,7 +392,7 @@ function filtrar() {
                         if (item.caracteristicas[0].hortifruti === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -407,7 +407,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                    <img src="${item.superIMG}">
+                                    <img src="../../assets/images/${item.superIMG}">
                                     <div class="detalhes">
                                     <h2>${item.displayname}</h2>
                                     <h3>${item.superEndereço}</h3>
@@ -423,7 +423,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                    <img src="${item.superIMG}">
+                                    <img src="../../assets/images/${item.superIMG}">
                                     <div class="detalhes">
                                     <h2>${item.displayname}</h2>
                                     <h3>${item.superEndereço}</h3>
@@ -442,7 +442,7 @@ function filtrar() {
                         if (item.caracteristicas[0].açogue === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -457,7 +457,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                    <img src="${item.superIMG}">
+                                    <img src="../../assets/images/${item.superIMG}">
                                     <div class="detalhes">
                                     <h2>${item.displayname}</h2>
                                     <h3>${item.superEndereço}</h3>
@@ -473,7 +473,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                    <img src="${item.superIMG}">
+                                    <img src="../../assets/images/${item.superIMG}">
                                     <div class="detalhes">
                                     <h2>${item.displayname}</h2>
                                     <h3>${item.superEndereço}</h3>
@@ -492,7 +492,7 @@ function filtrar() {
                         if (item.caracteristicas[0].padaria === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -507,7 +507,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -523,7 +523,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -542,7 +542,7 @@ function filtrar() {
                         if (item.caracteristicas[0].adega === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -557,7 +557,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -573,7 +573,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -600,7 +600,7 @@ function filtrar() {
                     if (Categoria === '') {
                         if (Estacionar === '') {
                             str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -615,7 +615,7 @@ function filtrar() {
                         else if (Estacionar === 'sem') {
                             if (item.caracteristicas[0].estacionamento === 'nao') {
                                 str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -631,7 +631,7 @@ function filtrar() {
                         else if (Estacionar === 'com') {
                             if (item.caracteristicas[0].estacionamento === 'sim') {
                                 str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -649,7 +649,7 @@ function filtrar() {
                         if (item.caracteristicas[0].hortifruti === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -664,7 +664,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -680,7 +680,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -699,7 +699,7 @@ function filtrar() {
                         if (item.caracteristicas[0].açogue === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -714,7 +714,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -730,7 +730,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -749,7 +749,7 @@ function filtrar() {
                         if (item.caracteristicas[0].padaria === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -764,7 +764,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -781,7 +781,7 @@ function filtrar() {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     if (Estacionar === '') {
                                         str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -796,7 +796,7 @@ function filtrar() {
                                     else if (Estacionar === 'sem') {
                                         if (item.caracteristicas[0].estacionamento === 'nao') {
                                             str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -812,7 +812,7 @@ function filtrar() {
                                     else if (Estacionar === 'com') {
                                         if (item.caracteristicas[0].estacionamento === 'sim') {
                                             str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -833,7 +833,7 @@ function filtrar() {
                         if (item.caracteristicas[0].adega === 'sim') {
                             if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.superIMG}">
+                             <img src="../../assets/images/${item.superIMG}">
                              <div class="detalhes">
                              <h2>${item.displayname}</h2>
                              <h3>${item.superEndereço}</h3>
@@ -848,7 +848,7 @@ function filtrar() {
                             else if (Estacionar === 'sem') {
                                 if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -864,7 +864,7 @@ function filtrar() {
                             else if (Estacionar === 'com') {
                                 if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                <img src="${item.superIMG}">
+                                <img src="../../assets/images/${item.superIMG}">
                                 <div class="detalhes">
                                 <h2>${item.displayname}</h2>
                                 <h3>${item.superEndereço}</h3>
@@ -893,7 +893,7 @@ function filtrar() {
 // Várias função
 
 function teste(botaoId) {
-    fetch('supermercados.json')
+    fetch('../../assets/db/supermercados.json')
         .then(res => res.json())
         .then(data => {
             var idMercado = botaoId.split('-')[1];
@@ -908,11 +908,11 @@ function teste(botaoId) {
                                     <div class="popup-close" onclick="teste2()">x</div>
                                     <div class="popup-conteudo">
                                         <h2>${item.displayname}</h2>
-                                        <img src="${item.superIMG}">
+                                        <img src="../../assets/images/${item.superIMG}">
                                         <h3>${item.superEndereço}</h3>
                                         <h4>${item.superHoras}</h3>
                                         <p>${item.pontuação} Estrelas</p>
-                                        <a href="#">Veja mais</a>
+                                        <a href="../PaginaSupermercado/PaginaSupermercado.html?id=${item.superID}">Veja mais</a>
                                         <a href="#" id="btn-${item.superID}"onclick="mapaTeste(this.id)">Veja no mapa</a>
                                     </div>
                                 </div>
@@ -952,7 +952,7 @@ function mapaTeste( idBotao ) {
         popup.style.display = 'block';
     }
 
-    fetch('supermercados.json')
+    fetch('../../assets/db/supermercados.json')
         .then(res => res.json())
         .then(data => {
 

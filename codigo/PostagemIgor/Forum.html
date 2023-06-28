@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="templatestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Fórum</title>
+</head>
+<body>
+
+    <header width="device-width">
+        <p class="templogo"> P </p>
+    </header>
+
+    <main>
+        <div class="geral">
+            <div class="box">
+                <div class="tituloPost">
+                    <span>Fazer um post</span>
+                </div>
+
+                <form class="formulario-post">
+                    <span class="tipos">Título do post:</span>
+                    <input type="text" name="tituloPost" placeholder="Título">
+
+                    <span class="tipos">Assunto do post:</span>
+                    <input type="text" name="assuntoPost" placeholder="Assunto...">
+
+                    <input class="enviarFormulario" type="submit" value="Criar post">
+                </form>
+            </div>
+            <div class="areaPost">
+                <div id="postsContainer"></div>
+                    <p id="noPostsMessage">Não há nenhum post.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer width="device-width">
+        <a href="../../index.html" style="font-size:24px"><i class="fa fa-home"></i></a>
+        <a href="../MapaSupermercados/MapaSupermercados.html" style="font-size:24px"><i class="fa fa-map"></i></a>
+        <a href="../TodosOsProdutos/TodosOsProdutos.html" style="font-size:24px"><i class="fa fa-clipboard"></i></a>
+        <a href="Forum.html" style="font-size:24px"><i class="fa fa-paper-plane"></i></a>
+    </footer>
+
+    <script src="templatescript.js"></script>
+</body>
+</html>

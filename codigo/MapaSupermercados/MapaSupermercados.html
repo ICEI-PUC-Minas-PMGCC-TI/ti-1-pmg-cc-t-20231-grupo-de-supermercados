@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Mapa</title>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <header width="device-width">
+        <a class="headericon" style="font-size:24px"><i class="fa fa-bars"></i></a>
+        <p class="templogo"> P </p>
+        <a class="headericon" style="font-size:24px"><i class="fa fa-search"></i></a>
+    </header>
+
+    <div class="container">
+        <div id="map"></div>
+    </div>
+
+
+
+    <div class="sorocaba">
+        <div class="filtros">
+            <h3>Caracteristicas:</h3>
+
+            <select name="CARACTERISTICAS" class="CARACTERISTICAS" id="CARACTERISTICAS">
+                <option value="" selected>--Escolha--</option>
+                <option value="hortifruti">HORTIFRUTI</option>
+                <option value="açogue">AÇOGUE</option>
+                <option value="padaria">PADARIA</option>
+                <option value="adega">ADEGA</option>
+            </select>
+
+            <select name="CARACTERISTICAS2" id="CARACTERISTICAS2">
+                <option value="" selected>--Escolha--</option>
+                <option value="com">COM ESTACIONAMENTO</option>
+                <option value="sem">SEM ESTACIONAMENTO</option>
+            </select>
+
+            <select name="FILTRAGEM" class="FILTRO" id="FILTRO">
+                <option value="" selected>--Escolha--</option>
+                <option value="1">Alfabético</option>
+                <option value="2">Melhores avaliações</option>
+            </select>
+
+            <button class="btnFiltro" id="botaoFiltro" onclick="filtrar()">Filtrar</button>
+        </div>
+
+
+
+        <div class="fog">
+            <div class="desmarcar">
+                <button onclick="desmarcar()">Desmarcar</button>
+            </div>
+        </div>
+
+        <div class="lista" id="lista">
+            <!--  <div class="SuperM">
+            <img src="imagem1.png">
+            <div class="detalhes">
+                <h2>Porta</h2>
+                <h3>Porta</h3>
+                <h4>Estrela</h4>
+            </div>
+            <div class="CBotao">
+                <button class="btn" id="btn">Marcar</button>
+            </div>
+        </div> -->
+        </div>
+    </div>
+
+
+
+
+    <div id="popup-container">
+        <!--
+            <div class="popup-fundo">
+                <div class="popup">
+                    <div class="popup-close">x</div>
+                    <div class="popup-conteudo">
+                        <h2>Pop-Up teste</h2>
+                        <p>algo</p>
+                        <a href="#">Veja mais</a>
+                    </div>
+                </div>
+            </div>
+        -->
+    </div>
+
+    <footer width="device-width">
+        <a href="../../index.html" style="font-size:24px"><i class="fa fa-home"></i></a>
+        <a href="MapaSupermercados.html" style="font-size:24px"><i class="fa fa-map"></i></a>
+        <a href="../TodosOsProdutos/TodosOsProdutos.html" style="font-size:24px"><i class="fa fa-clipboard"></i></a>
+        <a href="../PostagemIgor/Forum.html" style="font-size:24px"><i class="fa fa-paper-plane"></i></a>
+    </footer>
+
+    <script src="NewJavaScript.js"></script>
+</body>
+
+</html>
