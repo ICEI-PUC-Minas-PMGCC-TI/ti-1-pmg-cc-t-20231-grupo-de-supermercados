@@ -25,34 +25,45 @@
         <div id="map"></div>
     </div>
 
-    <div class="filtros">
-        <h3>Caracteristicas:</h3>
 
-        <select name="CARACTERISTICAS" class="CARACTERISTICAS" id="CARACTERISTICAS">
-            <option value="" selected>--Escolha--</option>
-            <option value="hortifruti">HORTIFRUTI</option>
-            <option value="açogue">AÇOGUE</option>
-            <option value="padaria">PADARIA</option>
-            <option value="adega">ADEGA</option>
-        </select>
 
-        <select name="CARACTERISTICAS2" id="CARACTERISTICAS2">
-            <option value="" selected>--Escolha--</option>
-            <option value="com">COM ESTACIONAMENTO</option>
-            <option value="sem">SEM ESTACIONAMENTO</option>
-        </select>
+    <div class="sorocaba">
+        <div class="filtros">
+            <h3>Caracteristicas:</h3>
 
-        <select name="FILTRAGEM" class="FILTRO" id="FILTRO">
-            <option value="" selected>--Escolha--</option>
-            <option value="1">Alfabético</option>
-            <option value="2">Melhores avaliações</option>
-        </select>
+            <select name="CARACTERISTICAS" class="CARACTERISTICAS" id="CARACTERISTICAS">
+                <option value="" selected>--Escolha--</option>
+                <option value="hortifruti">HORTIFRUTI</option>
+                <option value="açogue">AÇOGUE</option>
+                <option value="padaria">PADARIA</option>
+                <option value="adega">ADEGA</option>
+            </select>
 
-        <button class="btnFiltro" id="botaoFiltro" onclick="filtrar()">Filtrar</button>
-    </div>
+            <select name="CARACTERISTICAS2" id="CARACTERISTICAS2">
+                <option value="" selected>--Escolha--</option>
+                <option value="com">COM ESTACIONAMENTO</option>
+                <option value="sem">SEM ESTACIONAMENTO</option>
+            </select>
 
-    <div class="lista" id="lista">
-        <!--  <div class="SuperM">
+            <select name="FILTRAGEM" class="FILTRO" id="FILTRO">
+                <option value="" selected>--Escolha--</option>
+                <option value="1">Alfabético</option>
+                <option value="2">Melhores avaliações</option>
+            </select>
+
+            <button class="btnFiltro" id="botaoFiltro" onclick="filtrar()">Filtrar</button>
+        </div>
+
+
+
+        <div class="fog">
+            <div class="desmarcar">
+                <button onclick="desmarcar()">Desmarcar</button>
+            </div>
+        </div>
+
+        <div class="lista" id="lista">
+            <!--  <div class="SuperM">
             <img src="imagem1.png">
             <div class="detalhes">
                 <h2>Porta</h2>
@@ -63,7 +74,11 @@
                 <button class="btn" id="btn">Marcar</button>
             </div>
         </div> -->
+        </div>
     </div>
+
+
+
 
     <div id="popup-container">
         <!--

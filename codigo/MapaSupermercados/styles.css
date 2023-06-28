@@ -79,12 +79,18 @@ body {
     margin-left: 20px;
 }
 
+.sorocaba {
+    position: relative;
+    height: fit-content;
+}
+
 .lista{
     background-color: gray;
     display: flex;
     width: 100%;
-    height: 900px;
+    height: fit-content;
     padding-top: 20px;
+    padding-bottom: 100px;
     flex-wrap: wrap;
     flex-direction: column; 
     align-items: center;
@@ -212,4 +218,31 @@ footer a {
     top: 5px;
     right: 10px;
     cursor:pointer;
+}
+
+.fog{
+    display: none;
+    background: rgba(0,0,0,.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.desmarcar {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.desmarcar button {
+    color: white;
+    cursor: pointer;
+    padding: 15px 20px;
+    text-decoration: none;
+    background-color: crimson;
+    border-radius: 5px;
+    border-color: white;
 }

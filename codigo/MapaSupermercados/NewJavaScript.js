@@ -20,12 +20,6 @@ const map = new ol.Map({
 });
 
 
-function testeMapa (idBruto)
-{
-    var id = idBruto.split('-')[1];
-
-    console.log (id);
-}
 
 
 
@@ -34,7 +28,7 @@ function testeMapa (idBruto)
 */
 
 
-fetch('data.json')
+fetch('supermercados.json')
     .then(res => res.json())
     .then(data => {
         for (let i = 0; i < data.length; i++) {
@@ -44,22 +38,22 @@ fetch('data.json')
 
 
 
-fetch('data.json')
+fetch('supermercados.json')
     .then(res => res.json())
     .then(data => {
         let str = '';
-        for (let i = 0; i < data.Supermercados.length; i++) {
-            let item = data.Supermercados[i];
+        for (let i = 0; i < data.supermercados.length; i++) {
+            let item = data.supermercados[i];
 
             str += `<div class="SuperM">
-            <img src="${item.imagem}">
+            <img src="${item.superIMG}">
             <div class="detalhes">
-                <h2>${item.nome}</h2>
-                <h3>${item.Endereço}</h3>
+                <h2>${item.displayname}</h2>
+                <h3>${item.superEndereço}</h3>
                 <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
             </div>
             <div class="CBotao">
-                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
             </div>
         </div>`
         }
@@ -74,7 +68,7 @@ const selectEstac = document.getElementById('CARACTERISTICAS2');
 
 
 function filtrar() {
-    fetch('data.json')
+    fetch('supermercados.json')
         .then(res => res.json())
         .then(data => {
             let str = '';
@@ -86,579 +80,512 @@ function filtrar() {
 
 
             if (Filtro === "") {
-                for (let i = 0; i < data.Supermercados.length; i++) {
-                    let item = data.Supermercados[i];
+                for (let i = 0; i < data.supermercados.length; i++) {
+                    let item = data.supermercados[i];
 
-                    if (Categoria === '') 
-                    {
-                        if (Estacionar === '')
-                        {
+                    if (Categoria === '') {
+                        if (Estacionar === '') {
                             str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                         }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                        else if (Estacionar === 'sem') {
+                            if (item.caracteristicas[0].estacionamento === 'nao') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
                             }
                         }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
+                        else if (Estacionar === 'com') {
+                            if (item.caracteristicas[0].estacionamento === 'sim') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
                             }
                         }
                     }
-                    else if (Categoria === 'hortifruti') 
-                    {
-                        if (item.caracteristicas[0].hortifruti === 'sim') 
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'hortifruti') {
+                        if (item.caracteristicas[0].hortifruti === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
-                    else if (Categoria === 'açogue')
-                    {
-                        if (item.caracteristicas[0].açogue === 'sim')
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'açogue') {
+                        if (item.caracteristicas[0].açogue === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
-                    else if (Categoria === 'padaria')
-                    {
-                        if (item.caracteristicas[0].padaria === 'sim')
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'padaria') {
+                        if (item.caracteristicas[0].padaria === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
-                    else if (Categoria === 'adega')
-                    {
-                        if (item.caracteristicas[0].adega === 'sim')
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'adega') {
+                        if (item.caracteristicas[0].adega === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
 
                 }
             }
             else if (Filtro == 1) {
-                data.Supermercados.sort((a, b) => a.nome.localeCompare(b.nome));
+                data.supermercados.sort((a, b) => a.displayname.localeCompare(b.displayname));
 
-                for (let i = 0; i < data.Supermercados.length; i++) {
-                    let item = data.Supermercados[i];
+                for (let i = 0; i < data.supermercados.length; i++) {
+                    let item = data.supermercados[i];
 
                     if (Categoria === '') {
-                        if (Estacionar === '')
-                        {
+                        if (Estacionar === '') {
                             str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                         }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                        else if (Estacionar === 'sem') {
+                            if (item.caracteristicas[0].estacionamento === 'nao') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
                             }
                         }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
+                        else if (Estacionar === 'com') {
+                            if (item.caracteristicas[0].estacionamento === 'sim') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
                             }
                         }
                     }
-                    else if (Categoria === 'hortifruti') 
-                    {
-                        if (item.caracteristicas[0].hortifruti === 'sim') 
-                        {
-                            if (Estacionar === '')
-                            {
+                    else if (Categoria === 'hortifruti') {
+                        if (item.caracteristicas[0].hortifruti === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                                 <img src="${item.imagem}">
-                                 <div class="detalhes">
-                                 <h2>${item.nome}</h2>
-                                 <h3>${item.Endereço}</h3>
-                                 <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                                </div>
-                                
-                                <div class="CBotao">
-                                    <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                                </div>
-                                </div>`
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
                             }
-                            else if (Estacionar === 'sem')
-                            {
-                                if (item.caracteristicas[0].estacionamento === 'nao')
-                                {
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                 <img src="${item.imagem}">
-                                 <div class="detalhes">
-                                 <h2>${item.nome}</h2>
-                                 <h3>${item.Endereço}</h3>
-                                 <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                                </div>
-                                
-                                <div class="CBotao">
-                                    <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                                </div>
-                                </div>`
+                                    <img src="${item.superIMG}">
+                                    <div class="detalhes">
+                                    <h2>${item.displayname}</h2>
+                                    <h3>${item.superEndereço}</h3>
+                                    <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                                   </div>
+                                   
+                                   <div class="CBotao">
+                                       <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                                   </div>
+                                   </div>`
                                 }
                             }
-                            else if (Estacionar === 'com')
-                            {
-                                if (item.caracteristicas[0].estacionamento === 'sim')
-                                {
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                 <img src="${item.imagem}">
-                                 <div class="detalhes">
-                                 <h2>${item.nome}</h2>
-                                 <h3>${item.Endereço}</h3>
-                                 <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                                </div>
-                                
-                                <div class="CBotao">
-                                    <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                                </div>
-                                </div>`
+                                    <img src="${item.superIMG}">
+                                    <div class="detalhes">
+                                    <h2>${item.displayname}</h2>
+                                    <h3>${item.superEndereço}</h3>
+                                    <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                                   </div>
+                                   
+                                   <div class="CBotao">
+                                       <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                                   </div>
+                                   </div>`
                                 }
                             }
                         }
                     }
-                    else if (Categoria === 'açogue')
-                    {
-                        if (item.caracteristicas[0].açogue === 'sim')
-                        {
-                            if (Estacionar === '')
-                            {
+                    else if (Categoria === 'açogue') {
+                        if (item.caracteristicas[0].açogue === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                                 <img src="${item.imagem}">
-                                 <div class="detalhes">
-                                 <h2>${item.nome}</h2>
-                                 <h3>${item.Endereço}</h3>
-                                 <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                                </div>
-                                
-                                <div class="CBotao">
-                                    <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                                </div>
-                                </div>`
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
                             }
-                            else if (Estacionar === 'sem')
-                            {
-                                if (item.caracteristicas[0].estacionamento === 'nao')
-                                {
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
                                     str += `<div class="SuperM">
-                                 <img src="${item.imagem}">
-                                 <div class="detalhes">
-                                 <h2>${item.nome}</h2>
-                                 <h3>${item.Endereço}</h3>
-                                 <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                                </div>
-                                
-                                <div class="CBotao">
-                                    <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                                </div>
-                                </div>`
+                                    <img src="${item.superIMG}">
+                                    <div class="detalhes">
+                                    <h2>${item.displayname}</h2>
+                                    <h3>${item.superEndereço}</h3>
+                                    <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                                   </div>
+                                   
+                                   <div class="CBotao">
+                                       <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                                   </div>
+                                   </div>`
                                 }
                             }
-                            else if (Estacionar === 'com')
-                            {
-                                if (item.caracteristicas[0].estacionamento === 'sim')
-                                {
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
                                     str += `<div class="SuperM">
-                                 <img src="${item.imagem}">
-                                 <div class="detalhes">
-                                 <h2>${item.nome}</h2>
-                                 <h3>${item.Endereço}</h3>
-                                 <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                                </div>
-                                
-                                <div class="CBotao">
-                                    <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                                </div>
-                                </div>`
+                                    <img src="${item.superIMG}">
+                                    <div class="detalhes">
+                                    <h2>${item.displayname}</h2>
+                                    <h3>${item.superEndereço}</h3>
+                                    <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                                   </div>
+                                   
+                                   <div class="CBotao">
+                                       <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                                   </div>
+                                   </div>`
                                 }
                             }
                         }
                     }
-                    else if (Categoria === 'padaria')
-                    {
-                        if (item.caracteristicas[0].padaria === 'sim')
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'padaria') {
+                        if (item.caracteristicas[0].padaria === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
-                    else if (Categoria === 'adega')
-                    {
-                        if (item.caracteristicas[0].adega === 'sim')
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'adega') {
+                        if (item.caracteristicas[0].adega === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
 
@@ -666,328 +593,290 @@ function filtrar() {
 
             }
             else if (Filtro == 2) {
-                data.Supermercados.sort((a, b) => b.pontuação - a.pontuação);
-                for (let i = 0; i < data.Supermercados.length; i++) {
-                    let item = data.Supermercados[i];
+                data.supermercados.sort((a, b) => b.pontuação - a.pontuação);
+                for (let i = 0; i < data.supermercados.length; i++) {
+                    let item = data.supermercados[i];
 
                     if (Categoria === '') {
-                        if (Estacionar === '')
-                        {
+                        if (Estacionar === '') {
                             str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                         }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                        else if (Estacionar === 'sem') {
+                            if (item.caracteristicas[0].estacionamento === 'nao') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
                             }
                         }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
+                        else if (Estacionar === 'com') {
+                            if (item.caracteristicas[0].estacionamento === 'sim') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
                             }
                         }
                     }
-                    else if (Categoria === 'hortifruti') 
-                    {
-                        if (item.caracteristicas[0].hortifruti === 'sim') 
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'hortifruti') {
+                        if (item.caracteristicas[0].hortifruti === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
-                    else if (Categoria === 'açogue')
-                    {
-                        if (item.caracteristicas[0].açogue === 'sim')
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'açogue') {
+                        if (item.caracteristicas[0].açogue === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
-                    else if (Categoria === 'padaria')
-                    {
-                        if (item.caracteristicas[0].padaria === 'sim')
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'padaria') {
+                        if (item.caracteristicas[0].padaria === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    if (Estacionar === '') {
+                                        str += `<div class="SuperM">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                                    }
+                                    else if (Estacionar === 'sem') {
+                                        if (item.caracteristicas[0].estacionamento === 'nao') {
+                                            str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                        }
+                                    }
+                                    else if (Estacionar === 'com') {
+                                        if (item.caracteristicas[0].estacionamento === 'sim') {
+                                            str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                        }
+                                    }
+                                }
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                            }
-                        }
-                            }
-                        }
                         }
                     }
-                    else if (Categoria === 'adega')
-                    {
-                        if (item.caracteristicas[0].adega === 'sim')
-                        {
-                            if (Estacionar === '')
-                        {
-                            str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
-                        }
-                        else if (Estacionar === 'sem')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'nao')
-                            {
+                    else if (Categoria === 'adega') {
+                        if (item.caracteristicas[0].adega === 'sim') {
+                            if (Estacionar === '') {
                                 str += `<div class="SuperM">
-                             <img src="${item.imagem}">
+                             <img src="${item.superIMG}">
                              <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
+                             <h2>${item.displayname}</h2>
+                             <h3>${item.superEndereço}</h3>
                              <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
                             </div>
                             
                             <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
+                                <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
                             </div>
                             </div>`
                             }
-                        }
-                        else if (Estacionar === 'com')
-                        {
-                            if (item.caracteristicas[0].estacionamento === 'sim')
-                            {
-                                str += `<div class="SuperM">
-                             <img src="${item.imagem}">
-                             <div class="detalhes">
-                             <h2>${item.nome}</h2>
-                             <h3>${item.Endereço}</h3>
-                             <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
-                            </div>
-                            
-                            <div class="CBotao">
-                                <button class="btn" id="btn-${item.id}" onclick="teste(this.id)">Mostrar mais</button>
-                            </div>
-                            </div>`
+                            else if (Estacionar === 'sem') {
+                                if (item.caracteristicas[0].estacionamento === 'nao') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
                             }
-                        }
+                            else if (Estacionar === 'com') {
+                                if (item.caracteristicas[0].estacionamento === 'sim') {
+                                    str += `<div class="SuperM">
+                                <img src="${item.superIMG}">
+                                <div class="detalhes">
+                                <h2>${item.displayname}</h2>
+                                <h3>${item.superEndereço}</h3>
+                                <h4>Pontuação: ${item.pontuação} estrelas || Estacionamento: ${item.caracteristicas[0].estacionamento} || Açogue: ${item.caracteristicas[0].açogue} || Padaria ${item.caracteristicas[0].padaria} || Hortifruti: ${item.caracteristicas[0].hortifruti} || Adega: ${item.caracteristicas[0].adega}</h4>
+                               </div>
+                               
+                               <div class="CBotao">
+                                   <button class="btn" id="btn-${item.superID}" onclick="teste(this.id)">Mostrar mais</button>
+                               </div>
+                               </div>`
+                                }
+                            }
                         }
                     }
 
@@ -1001,26 +890,30 @@ function filtrar() {
 }
 
 
+// Várias função
+
 function teste(botaoId) {
-    fetch('data.json')
+    fetch('supermercados.json')
         .then(res => res.json())
         .then(data => {
             var idMercado = botaoId.split('-')[1];
             let str = '';
 
-            for (let i = 0; i < data.Supermercados.length; i++) {
-                let item = data.Supermercados[i];
+            for (let i = 0; i < data.supermercados.length; i++) {
+                let item = data.supermercados[i];
 
-                if (item.id === parseInt(idMercado)) {
+                if (item.superID === parseInt(idMercado)) {
                     str += `<div class="popup-fundo">
                                 <div class="popup">
                                     <div class="popup-close" onclick="teste2()">x</div>
                                     <div class="popup-conteudo">
-                                        <h2>${item.nome}</h2>
-                                        <img src="${item.imagem}">
-                                        <h3>${item.Endereço}</h3>
+                                        <h2>${item.displayname}</h2>
+                                        <img src="${item.superIMG}">
+                                        <h3>${item.superEndereço}</h3>
+                                        <h4>${item.superHoras}</h3>
                                         <p>${item.pontuação} Estrelas</p>
                                         <a href="#">Veja mais</a>
+                                        <a href="#" id="btn-${item.superID}"onclick="mapaTeste(this.id)">Veja no mapa</a>
                                     </div>
                                 </div>
                             </div>`;
@@ -1043,9 +936,80 @@ function teste3() {
 }
 
 
-function teste2 ()
-{
+function teste2() {
     let str = '';
 
     document.getElementById('popup-container').innerHTML = str;
+}
+
+let marker; //ai ai
+
+function mapaTeste( idBotao ) {
+    let str = '';
+    let popup = document.querySelector('.fog');
+    document.getElementById('popup-container').innerHTML = str;
+    if (popup) {
+        popup.style.display = 'block';
+    }
+
+    fetch('supermercados.json')
+        .then(res => res.json())
+        .then(data => {
+
+            var idMercado1 = parseInt (idBotao.split('-')[1]);
+            for (let i = 0; i < data.supermercados.length; i++) {
+                let item = data.supermercados[i];
+
+                if (item.superID === idMercado1)
+                {
+                    const productLAT = parseFloat(item.latitude);
+                    const productLONG = parseFloat(item.longitude);
+                    
+                    atualizarCentroMapa(productLONG, productLAT);
+
+                     marker = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: [
+                                new ol.Feature({
+                                    geometry: new ol.geom.Point(
+                                        ol.proj.fromLonLat([productLONG, productLAT])
+                                    )
+                                })
+                            ],
+                        }),
+                        style: new ol.style.Style({
+                            image: new ol.style.Icon({
+                                src: 'https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-47-512.png',
+                                size: [512, 512],
+                                scale: 0.1
+                            })
+                        })
+                    })  //marcador
+
+                    map.addLayer(marker);
+
+                } //end if
+            }
+        }) //end fetch
+
+}
+
+function desmarcar() {
+    let popup = document.querySelector('.fog');
+    if (popup) {
+        popup.style.display = 'none';
+    }
+    map.removeLayer(marker);
+    resetZoom();
+}
+
+
+function atualizarCentroMapa(longitude, latitude) {
+    var novoCentro = ol.proj.fromLonLat([longitude, latitude]);
+    map.getView().setCenter(novoCentro);
+    map.getView().setZoom(20);
+}
+
+function resetZoom () {
+    map.getView().setZoom(17);
 }
