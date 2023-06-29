@@ -10,33 +10,6 @@ class prodPos {
 	}
 }
 
-// Simular produtos já em estoque
-function simProducts() {
-	// Carregar lista de produtos template
-	$.getJSON("/../../assets/db/produtos.json", function (produtosData) {
-		//localStorage.setItem("produtos", JSON.stringify(produtosData));
-
-		// Carregar lista de supermercados template
-		$.getJSON("/../../assets/db/supermercados.json", function (supermercadosData) {
-
-			// Passar o nome correto de cada prodto para cada supermercado que contenha o ID desse produto
-			let currentID = 0;
-			for (let index = 0; index < supermercadosData.supermercados.length; index++) {
-				for (let index2 = 0; index2 < supermercadosData.supermercados[index].mercadorias.length; index2++) {
-					currentID = supermercadosData.supermercados[index].mercadorias[index2].id;
-					supermercadosData.supermercados[index].mercadorias[index2].name = produtosData.produtos[currentID].name;
-				}
-			}
-
-			localStorage.setItem("supermercadosDB", JSON.stringify(supermercadosData));
-		});
-		localStorage.setItem("produtosDB", JSON.stringify(produtosData));
-	});
-
-};
-
-// Fim da simulação. Precos estão carregados.
-
 //################################################################################
 //########################### Motor da Comparação ################################
 //################################################################################
@@ -74,8 +47,9 @@ for (let index3 = 0.0; index3 < positions.length; index3++) {
 	average += positions[index3].tprice
 	divisor++;
 }
-if (divisor == 0){
-	divisor++;}
+if (divisor == 0) {
+	divisor++;
+}
 average = average / divisor
 average = average.toFixed(2) // Mostra até duas casas decimais.
 
@@ -142,65 +116,10 @@ function leDados(name) {
 
 	if (strDados) {
 		objDados = JSON.parse(strDados);
-		window.onbeforeunload = function () {
-			// Clear the Local Storage
-			localStorage.clear();
-		};
 	}
-
-	// Caso não de para carregar, carregamos um modelo de baixa fidelidade
-	// E recarregamos a pagina.
-
+	// Caso não de para carregar mostramos um alerta de erro.
 	else {
-		//alert("Simulação de produtos Concluida. A pagina será recarregada automaticamente.");
-		setTimeout(function () {
-			location.reload();
-		}, 500);
-		objDados = {
-			supermercados: [
-				{
-					displayname: "SuperSeu",
-					name: "superseu",
-					superID: 1,
-					superIMG: "supernosso",
-					superEndereço: "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
-					superHoras: "Abre às 7:00, Fecha às 20:00.",
-					mercadorias: [
-						{
-							name: "Gatorade",
-							id: 1,
-							price: 10.99
-						},
-						{
-							name: "Biscoitos-Polvilho",
-							id: 2,
-							price: 2.99
-						}
-					]
-				},
-				{
-					displayname: "CarreFila",
-					name: "carrefila",
-					superID: 2,
-					superIMG: "carrefour",
-					superEndereço: "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
-					superHoras: "Abre às 7:00, Fecha às 20:00.",
-					mercadorias: [
-						{
-							name: "Gatorade",
-							id: 1,
-							price: 2.99
-						},
-						{
-							name: "Maca",
-							id: 0,
-							price: 3.49
-						}
-					]
-				}
-			]
-		};
-		simProducts();
+		alert("DB Não encontrada.");
 	}
 	return objDados;
 }
