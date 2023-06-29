@@ -2,10 +2,11 @@ fetch('../../assets/db/produtos.json')
   .then(response => response.json())
   .then(data => {
     let str = '';
-    let produtosLocalStorage = JSON.parse(localStorage.getItem('produtos')) || [];
+    let produtosLocalStorage = JSON.parse(localStorage.getItem('produtos'));
+    let produtosDB = JSON.parse(localStorage.getItem('produtosDB'));
 
-    for (let i = 0; i < data.produtos.length; i++) {
-      let item = data.produtos[i];
+    for (let i = 0; i < produtosDB.produtos.length; i++) {
+      let item = produtosDB.produtos[i];
       let favoritoClass = '';
       let favoritoSymbol = '';
 
@@ -34,63 +35,11 @@ fetch('../../assets/db/produtos.json')
   });
 
 
-window.onload = function () {
-  fetch('../../assets/db/produtos.json')
-    .then(response => response.json())
-    .then(data => {
-
-      let jsonValue = localStorage.getItem('produtos');
-      let objeto = JSON.parse(jsonValue);
-
-      if (!localStorage.getItem("produtos")) {
-        fetch('../../assets/db/produtos.json')
-          .then(response => response.json())
-          .then(data => {
-            var produtos = [];
-
-            for (let i = 0; i < data.produtos.length; i++) {
-              let item = data.produtos[i];
-              let id = item.id;
-              let favoritado = item.favoritado;
-
-              var produto = {
-                id: id,
-                favoritado: favoritado
-              };
-
-              produtos.push(produto);
-            }
-
-            var produtosJSON = JSON.stringify(produtos);
-            localStorage.setItem("produtos", produtosJSON);
-          });
-      }
-      /*else if (data.produtos.length > objeto.length) {
-
-        let teste = false;
-        for(let i = 0; i < data.produtos.length; i++)
-        {
-          let item = data.produtos[i];
-          for (let j = 0; j < objeto.length; j++)
-          {
-            let object = objeto[j];
-            if (item.id === object.id)
-            {
-              teste = true;
-            }
-          }
-        }
-      } */
-
-
-    }); // end fetch
-}; //end page load
-
-
 
 function marcarFavorito(idProduto) {
   let jsonValue = localStorage.getItem('produtos');
   let produtos = JSON.parse(jsonValue);
+  
 
   for (let i = 0; i < produtos.length; i++) {
     let produto = produtos[i];
@@ -117,6 +66,8 @@ function filtro() {
     .then(res => res.json())
     .then(data => {
       var checkBox = document.getElementById("show-favoritos");
+      let produtosDB = JSON.parse(localStorage.getItem('produtosDB'));
+
 
       if (checkBox.checked) {
         let jsonValue = localStorage.getItem('produtos');
@@ -127,7 +78,7 @@ function filtro() {
 
         for (let i = 0; i < produtos.length; i++) {
           let produto = produtos[i];
-          let item = data.produtos.find(item => item.id === produto.id);
+          let item = produtosDB.produtos.find(item => item.id === produto.id);
 
           if (produto.favoritado) {
             let favoritoClass = 'favoritado';
@@ -155,7 +106,7 @@ function filtro() {
         let produtosLocalStorage = JSON.parse(localStorage.getItem('produtos')) || [];
 
         for (let i = 0; i < data.produtos.length; i++) {
-          let item = data.produtos[i];
+          let item = produt.produtos[i];
           let favoritoClass = '';
           let favoritoSymbol = '';
 
