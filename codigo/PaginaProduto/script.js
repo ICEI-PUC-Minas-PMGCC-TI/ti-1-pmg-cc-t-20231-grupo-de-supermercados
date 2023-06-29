@@ -1,11 +1,12 @@
 // Definir classe para achar detalhes de produtos.
 class prodPos {
-	constructor(smID, pIndex, tprice, tmerca, tnam) {
+	constructor(smID, pIndex, tprice, tmerca, tnam, tID) {
 		this.smID = smID;
 		this.pIndex = pIndex;
 		this.tprice = tprice;
 		this.tmerca = tmerca;
 		this.tnam = tnam;
+		this.tID = tID;
 	}
 }
 
@@ -53,7 +54,15 @@ Experimente:
 -------------------------------\\
 -------------------------vvvvvvvvvvvvvv---------------
 */
-let positions = getPos("Gatorade");
+// let positions = getPos(1); // - FUNCAO TESTE
+
+// Pegar a partir da URL
+var url = new URL(window.location.href);
+var idParam = url.searchParams.get('id');
+var id = parseInt(idParam);
+
+let positions = getPos(id);
+
 positions.sort(function (a, b) {
 	return parseFloat(a.tprice) - parseFloat(b.tprice);
 });
@@ -68,6 +77,8 @@ for (let index3 = 0.0; index3 < positions.length; index3++) {
 if (divisor == 0){
 	divisor++;}
 average = average / divisor
+average = average.toFixed(2) // Mostra até duas casas decimais.
+
 
 //################################################################################
 //##################### Carregar Pagina Dinamicamente ############################
@@ -98,18 +109,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div class="proddesc">
 
-        <p class="superm"> ${positions[i].tmerca}
-        </p>
+	<a href="../PaginaSupermercado/PaginaSupermercado.html?id=${positions[i].tID}"<p class="superm"> ${positions[i].tmerca}
+        </p></a>
 
         <p class="prodname pname"> ${positions[i].tnam}
         </p>
         <div class="pricetext">
             <p>R$ </p>
             <p class="preco">${positions[i].tprice}</p>
-        </div>
-        <div class="distancetext">
-            <p class="distance">0.2</p>
-            <p>KM</p>
         </div>
     </div>
   `;
@@ -135,13 +142,29 @@ function leDados(name) {
 
 	if (strDados) {
 		objDados = JSON.parse(strDados);
+		window.onbeforeunload = function () {
+			// Clear the Local Storage
+			localStorage.clear();
+		};
 	}
+
+	// Caso não de para carregar, carregamos um modelo de baixa fidelidade
+	// E recarregamos a pagina.
+
 	else {
+		//alert("Simulação de produtos Concluida. A pagina será recarregada automaticamente.");
+		setTimeout(function () {
+			location.reload();
+		}, 500);
 		objDados = {
 			supermercados: [
 				{
-					name: "SuperSeu",
+					displayname: "SuperSeu",
+					name: "superseu",
 					superID: 1,
+					superIMG: "supernosso",
+					superEndereço: "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
+					superHoras: "Abre às 7:00, Fecha às 20:00.",
 					mercadorias: [
 						{
 							name: "Gatorade",
@@ -156,8 +179,12 @@ function leDados(name) {
 					]
 				},
 				{
-					name: "CarreFila",
+					displayname: "CarreFila",
+					name: "carrefila",
 					superID: 2,
+					superIMG: "carrefour",
+					superEndereço: "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
+					superHoras: "Abre às 7:00, Fecha às 20:00.",
 					mercadorias: [
 						{
 							name: "Gatorade",
@@ -184,13 +211,12 @@ function getPos(name) {
 	// Ler os dados de Local Storage
 	let smDados = leDados('supermercadosDB');
 	let positions = [];
-	name.toLowerCase();
-	let prodName = "test";
+	let prodName = 0;
 
 	// Quantidade de produtos total encontrado, em todos supermercados
 	for (let index = 0; index < smDados.supermercados.length; index++) {
 		for (let index2 = 0; index2 < smDados.supermercados[index].mercadorias.length; index2++) {
-			prodName = smDados.supermercados[index].mercadorias[index2].name;
+			prodName = smDados.supermercados[index].mercadorias[index2].id;
 			if (name == prodName) {
 				positions.push(new prodPos(
 					index,
@@ -198,6 +224,7 @@ function getPos(name) {
 					smDados.supermercados[index].mercadorias[index2].price,
 					smDados.supermercados[index].name,
 					smDados.supermercados[index].mercadorias[index2].name,
+					smDados.supermercados[index].superID
 				));
 			}
 		}

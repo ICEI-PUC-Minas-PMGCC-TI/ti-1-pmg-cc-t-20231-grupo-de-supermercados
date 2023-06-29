@@ -51,7 +51,13 @@ function simProducts() {
 //##################### Carregar Pagina Dinamicamente ############################
 //################################################################################
 
-let market = getPos("superseu");
+// let market = getPos("superseu");
+
+// Pegar a partir da URL
+var url = new URL(window.location.href);
+var idParam = url.searchParams.get('id');
+var id = parseInt(idParam);
+let market = getPos(id);
 
 // Para fins de teste, você pode mudar o parâmetro do getPos acima para qualquer 'name' definido
 // dentro do supermercados.json. "carrefila" e "superseu" são os supermercados padrões que coloquei.
@@ -82,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		newDiv.setAttribute('id', i + 1);
 
 		// Set the innerHTML of the new div to the original productbox HTML code
-		newDiv.innerHTML = `
+		newDiv.innerHTML = `<a href="../PaginaProduto/PaginaProduto.html?id=${market[0].smMerchandise[i].pID}">
     <img class="pimage" src="/../../assets/images/${market[0].smMerchandise[i].pName}.jpg">
 
     <div class="proddesc">
@@ -93,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>R$ </p>
             <p class="preco">${market[0].smMerchandise[i].pPrice}</p>
         </div>
-    </div>
+    </div></a>
   `;
 
 		// Append the new div to the parent section
@@ -127,7 +133,7 @@ function leDados(name) {
 	// E recarregamos a pagina.
 
 	else {
-		alert("Simulação de produtos Concluida. A pagina será recarregada automaticamente.");
+		//alert("Simulação de produtos Concluida. A pagina será recarregada automaticamente.");
 		setTimeout(function () {
 			location.reload();
 		}, 500);
@@ -187,13 +193,12 @@ function getPos(name) {
 	let smDados = leDados('supermercadosDB');
 	let market = [];
 	let estoque = [];
-	name.toLowerCase();
-	let MarketName = "test";
+	let MarketName = 0;
 
 	// Quantidade de produtos total encontrado, em todos supermercados
 	for (let index = 0; index < smDados.supermercados.length; index++) {
 		// Dados sobre cada supermercado.
-		MarketName = smDados.supermercados[index].name;
+		MarketName = smDados.supermercados[index].superID;
 		if (MarketName == name) {
 			// Carregar dados sobre os produtos.
 			for (let index2 = 0; index2 < smDados.supermercados[index].mercadorias.length; index2++) {
