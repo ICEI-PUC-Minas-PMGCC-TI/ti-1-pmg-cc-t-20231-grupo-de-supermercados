@@ -44,6 +44,31 @@
 					"name": "product5placeholder",
 					"id": 5,
 					"price": 6.99
+				},
+				{
+					"name": "product1placeholder",
+					"id": 7,
+					"price": 10.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 6,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 9,
+					"price": 5.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 11,
+					"price": 12.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 13,
+					"price": 46.99
 				}
 			]
 		},
@@ -69,33 +94,58 @@
 			"mercadorias": [
 				{
 					"name": "product1placeholder",
-					"id": 1,	
-					"price": 2.99
+					"id": 1,
+					"price": 10.99
 				},
 				{
-					"name": "product2placeholder",
-					"id": 2,
-					"price": 4.99
+					"name": "product0placeholder",
+					"id": 4,
+					"price": 5.99
 				},
 				{
 					"name": "product4placeholder",
 					"id": 6,
-					"price": 29.99
-				},
-				{
-					"name": "product4placeholder",
-					"id": 4,
 					"price": 15.99
 				},
 				{
+					"name": "product2placeholder",
+					"id": 8,
+					"price": 2.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 10,
+					"price": 6.99
+				},
+				{
+					"name": "product1placeholder",
+					"id": 14,
+					"price": 10.99
+				},
+				{
 					"name": "product0placeholder",
-					"id": 0,
-					"price": 3.49
+					"id": 13,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 11,
+					"price": 5.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 5,
+					"price": 12.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 2,
+					"price": 46.99
 				}
 			]
 		},
 		{
-			"displayname": "Bem Viver",
+			"displayname": "Bem Sobreviver",
 			"name": "bemviver",
 			"superID": 3,
 			"superIMG": "BemViver",
@@ -117,27 +167,124 @@
 				{
 					"name": "product1placeholder",
 					"id": 1,
-					"price": 10.99
-				},
-				{
-					"name": "product0placeholder",
-					"id": 0,
 					"price": 5.99
 				},
 				{
-					"name": "product4placeholder",
+					"name": "product0placeholder",
 					"id": 3,
+					"price": 8.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 4,
 					"price": 15.99
 				},
 				{
 					"name": "product2placeholder",
-					"id": 2,
+					"id": 5,
 					"price": 2.99
 				},
 				{
 					"name": "product5placeholder",
+					"id": 6,
+					"price": 6.99
+				},
+				{
+					"name": "product1placeholder",
+					"id": 7,
+					"price": 10.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 8,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 9,
+					"price": 5.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 10,
+					"price": 12.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 13,
+					"price": 42.99
+				}
+			]
+		},
+		{
+			"displayname": "Opa!",
+			"name": "Epa",
+			"superID": 4,
+			"superIMG": "Epa",
+			"superEndereço": "R. Gávea, 88 - Jardim America, Belo Horizonte - MG, 30421-340",
+			"superHoras": "Abre às 7:00, Fecha às 20:00.",
+			"pontuação": "5",
+			"longitude": "-43.98764273493398",
+			"latitude": "-19.92430657270007",
+      		"caracteristicas": [
+        		{
+					"estacionamento": "sim",
+					"açogue": "sim",
+					"padaria": "sim",
+					"hortifruti": "sim",
+					"adega": "sim"
+				}
+      		],
+			"mercadorias": [
+				{
+					"name": "product1placeholder",
+					"id": 1,
+					"price": 3.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 3,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 4,
+					"price": 12.99
+				},
+				{
+					"name": "product2placeholder",
 					"id": 5,
 					"price": 6.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 6,
+					"price": 9.99
+				},
+				{
+					"name": "product1placeholder",
+					"id": 7,
+					"price": 7.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 8,
+					"price": 8.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 9,
+					"price": 12.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 10,
+					"price": 14.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 13,
+					"price": 48.99
 				}
 			]
 		}	
