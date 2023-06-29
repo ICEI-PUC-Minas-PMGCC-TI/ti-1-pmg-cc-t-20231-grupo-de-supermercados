@@ -27,21 +27,51 @@ form.addEventListener('submit', (event) => {
     const favoritado = false;
     const id = maiorId;
 
-    
-    // Obter o arquivo de imagem
-    const imagem = form.imagem.files[0];
+            
+        // Obter o arquivo de imagem
+        const placeholder = form.imagem.files[0];
 
-    const tags = [];
-    const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked'); // Obter todas as checkboxes selecionadas
-    checkboxes.forEach((checkbox) => {
-        const checkboxId = checkbox.id;
-        const checkboxLabel = form.querySelector(`label[for="${checkboxId}"]`).textContent; // Obter o texto da label correspondente à checkbox selecionada
-        tags.push(checkboxLabel); // Adicionar a label ao array tags
-    });
+        const tags = [];
+        const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked'); // Obter todas as checkboxes selecionadas
+        checkboxes.forEach((checkbox) => {
+            const checkboxId = checkbox.id;
+            const checkboxLabel = form.querySelector(`label[for="${checkboxId}"]`).textContent; // Obter o texto da label correspondente à checkbox selecionada
+            tags.push(checkboxLabel); // Adicionar a label ao array tags
+        });
+
+        // Obter o nome do arquivo da imagem selecionada
+        const imagem = placeholder.name;
+
+        // Converter a imagem para JPG
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+
+        img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        canvas.toBlob(function(blob) {
+            // Salvar o arquivo de imagem como JPG
+            saveImage(blob, imagem, imagem);
+        }, 'image/jpeg', 1);
+        };
+
+        img.src = URL.createObjectURL(placeholder);
+
+        function saveImage(blob, originalFileName, newFileName) {
+        // Cria um link de download
+        var link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = newFileName;
+
+        // Clique no link para iniciar o download
+        link.click();
+        }
 
 
     // Verificar se os campos estão preenchidos
-    if (!name || !marca || !preco || !imagem || tags.length === 0) {
+    if (!name || !marca || !preco || !placeholder || tags.length === 0) {
         alert('Por favor, preencha todos os campos e selecione pelo menos uma checkbox!');
         return;
     }
@@ -54,7 +84,7 @@ form.addEventListener('submit', (event) => {
 
     // Ler o conteúdo do arquivo de imagem usando FileReader
     const reader = new FileReader();
-    reader.readAsDataURL(imagem);
+    reader.readAsDataURL(placeholder);
     reader.onload = () => {
         // Criar um objeto com as informações do produto (JSON)
         // const produto = { nome, marca, preco, imagem: reader.result };
