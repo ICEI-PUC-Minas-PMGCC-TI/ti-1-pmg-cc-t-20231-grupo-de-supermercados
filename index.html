@@ -14,13 +14,27 @@
 
 <body>
   <header width="device-width">
-    <a href="/codigo/CadastroProdutos/CadastroProdutos.html" class="headericon" style="font-size:24px"><i class="fa fa-bars"></i></a>
+    <a href="/codigo/CadastroProdutos/CadastroProdutos.html" class="headericon" style="font-size:24px"><i
+        class="fa fa-bars"></i></a>
     <p class="templogo"> P </p>
     <a class="headericon" style="font-size:24px"><i class="fa fa-search"></i></a>
   </header>
 
   <main>
+    <button id="clearLocalStorageBtn">Clear Local Storage</button>
 
+    <script>
+      // Function to handle button click
+      function clearLocalStorage() {
+        // Clear the local storage
+        localStorage.clear();
+        alert('Local storage has been cleared.');
+      }
+
+      // Add event listener to the button
+      var clearBtn = document.getElementById('clearLocalStorageBtn');
+      clearBtn.addEventListener('click', clearLocalStorage);
+    </script>
   </main>
 
   <footer width="device-width">
@@ -31,5 +45,6 @@
   </footer>
 </body>
 
- <script src="JavaScriptHome.js"></script> 
+<script src="JavaScriptHome.js"></script>
+
 </html>
