@@ -1,6 +1,7 @@
 // ESSA SEÇÃO DO CODIGO SERVE PARA CARREGAR DO JSON PARA O LOCAL STORAGE!
 
-simProducts();
+testeCarregar("supermercadosDB")
+testeCarregar("produtosDB")
 
 
 /*
@@ -31,5 +32,17 @@ function simProducts() {
 		localStorage.setItem("produtosDB", JSON.stringify(produtosData));
 	});
 };
+
+/*
+Testar se é preciso recarregar a página
+*/
+
+function testeCarregar(name) {
+	let strDados = localStorage.getItem(name);
+
+	if (!strDados) {
+		simProducts();
+	}
+}
 
 // EOF CARREGAR DO LOCAL STORAGE
