@@ -105,8 +105,8 @@ function filtro() {
         document.getElementById('lista').innerHTML = str; // Limpa a exibição atual
         let produtosLocalStorage = JSON.parse(localStorage.getItem('produtos')) || [];
 
-        for (let i = 0; i < data.produtos.length; i++) {
-          let item = produt.produtos[i];
+        for (let i = 0; i < produtosDB.produtos.length; i++) {
+          let item = produtosDB.produtos[i];
           let favoritoClass = '';
           let favoritoSymbol = '';
 
