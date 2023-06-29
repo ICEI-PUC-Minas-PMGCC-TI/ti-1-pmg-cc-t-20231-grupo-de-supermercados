@@ -144,6 +144,25 @@ body {
     height: 80px;
 }
 
+.pesquisa {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cyan;
+    border-top: 1px solid black;
+
+}
+
+.pesquisa form {
+    padding: 5px;
+    
+}
+
+.pesquisa form input {
+    padding: 5px;
+    border-radius: 5px;
+}
 
 
 
