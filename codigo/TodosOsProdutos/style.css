@@ -33,15 +33,15 @@ CORPO
 */
 
 .gustavo {
-  width: 100%;
-  background-color: green;
+  width: 200vh - 900px;
+  background-color: cyan;
+  border-bottom: 2px solid black;
   display: flex;
   padding: 13px;
 }
 
 .gustavo1 {
   margin: 0 auto;
-  background-color: yellow;
   width: fit-content;
   padding: 5px;
 }
