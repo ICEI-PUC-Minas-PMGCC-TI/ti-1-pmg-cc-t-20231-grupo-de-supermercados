@@ -210,6 +210,11 @@
 					"price": 12.99
 				},
 				{
+					"name": "product2placeholder",
+					"id": 10,
+					"price": 8.99
+				},
+				{
 					"name": "product5placeholder",
 					"id": 13,
 					"price": 42.99
@@ -280,6 +285,11 @@
 					"name": "product2placeholder",
 					"id": 10,
 					"price": 14.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 12,
+					"price": 6.99
 				},
 				{
 					"name": "product5placeholder",
