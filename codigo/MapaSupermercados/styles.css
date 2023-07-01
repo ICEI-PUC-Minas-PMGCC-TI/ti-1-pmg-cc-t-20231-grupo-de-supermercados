@@ -63,10 +63,12 @@ body {
     border-top: 2px solid black;
     display: flex;
     width: 100%;
-    height: 50px;
+    height: fit-content;
+    min-height: 50px;
     justify-content: center;
     align-items: center;
     zoom: 0.9;
+    flex-wrap: wrap;
 }
 
 .filtros select{
@@ -101,7 +103,8 @@ body {
     background-color: darkslategray;
     display: flex;
     width: 80%;
-    height: 100px;
+    height: fit-content;
+    min-height: 100px;
     align-items: center;
     margin-top: 20px;
 }
@@ -212,6 +215,7 @@ footer a {
     background-color: white;
     position: relative;
     zoom: 0.8;  
+    height: fit-content;
 }
 
 .popup a {
@@ -264,4 +268,38 @@ footer a {
     background-color: crimson;
     border-radius: 5px;
     border-color: white;
+}
+
+@media screen and (max-width: 593px) {
+
+    .popup {
+        width: 100%;
+        height: fit-content;
+        margin: 10px;
+    }
+
+    .popup img {
+        width: 50%;
+        height: 50%;
+    }
+
+    .popup-fundo{
+        display: none;
+        background: rgba(0,0,0,.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    
+    }
+    
+    .detalhes h3 {
+        display: none;
+    }
+
+    .SuperM {
+        padding: 3px;
+    }
+
 }

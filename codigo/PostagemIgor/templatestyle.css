@@ -178,3 +178,44 @@ footer a {
     padding: 15px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 760px) {
+
+.geral {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.areaPost {
+    background-color: lightgray;
+    display: block;
+    width: 60%;
+    height: max-content;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    background-color: lightgray;
+    display: block;
+    width: 60%;
+    height: max-content;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+    
+}
