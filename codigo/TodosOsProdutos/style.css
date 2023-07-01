@@ -59,7 +59,7 @@ main {
   background-color: rgb(153, 185, 185);
   margin: 50px auto;
   border: 2px solid black;
-  width: 45%;
+  width: 65%;
   height: 450px;
   justify-content: center;
   align-items: center;
@@ -139,3 +139,15 @@ footer {
 footer a {
   padding: 15px;
 }
+
+@media screen and (max-width: 1000px) {
+
+  .container {
+
+
+    width: 80%;
+
+  
+  }
+
+  }

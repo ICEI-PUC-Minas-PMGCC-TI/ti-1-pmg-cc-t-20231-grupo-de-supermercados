@@ -931,7 +931,7 @@ function teste(botaoId) {
 function teste3() {
     let popup = document.querySelector('.popup-fundo');
     if (popup) {
-        popup.style.display = 'block';
+        popup.style.display = 'flex';
     }
 }
 

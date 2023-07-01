@@ -5,11 +5,11 @@
 			"name": "superseu",
 			"superID": 1,
 			"superIMG": "supernosso",
-			"superEndereço": "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
+			"superEndereço": "Av. Teresa Cristina, 6175 - Salgado Filho, Belo Horizonte - MG, 30550-390",
 			"superHoras": "Abre às 7:00, Fecha às 20:00.",
 			"pontuação": "2",
-			"longitude": "-43.98497184217737",
-			"latitude": "-19.939840150170255",
+			"longitude": "-43.98495972222804",
+			"latitude": "-19.93983969659736",
       		"caracteristicas": [
         		{
 					"estacionamento": "nao",
@@ -77,11 +77,11 @@
 			"name": "carrefila",
 			"superID": 2,
 			"superIMG": "carrefour",
-			"superEndereço": "R. Jacui, 214, Floresta, Belo Horizonte - MG 30121-210",
+			"superEndereço": "Av. Dom Pedro II, 2930 - Carlos Prates, Belo Horizonte - MG, 30710-010",
 			"superHoras": "Aberto 24 Horas por dia.",
 			"pontuação": "1",
-			"longitude": "-43.97595109342288",
-			"latitude": "-19.939092617235104",
+			"longitude": "-43.96840995958834",
+			"latitude": " -19.910938939335423",
 			"caracteristicas": [
 			  {
 				  "estacionamento": "sim",
@@ -152,8 +152,8 @@
 			"superEndereço": "R. Gávea, 88 - Jardim America, Belo Horizonte - MG, 30421-340",
 			"superHoras": "Abre às 7:00, Fecha às 20:00.",
 			"pontuação": "5",
-			"longitude": "-43.98768278493398",
-			"latitude": "-19.92580657270007",
+			"longitude": "-43.97492885013003",
+			"latitude": " -19.93845405964713",
       		"caracteristicas": [
         		{
 					"estacionamento": "sim",
@@ -221,11 +221,11 @@
 			"name": "Epa",
 			"superID": 4,
 			"superIMG": "Epa",
-			"superEndereço": "R. Gávea, 88 - Jardim America, Belo Horizonte - MG, 30421-340",
+			"superEndereço": "R. Joaquim Nabuco, 208 - Nova Suíça, Belo Horizonte - MG, 30460-040",
 			"superHoras": "Abre às 7:00, Fecha às 20:00.",
 			"pontuação": "5",
-			"longitude": "-43.98764273493398",
-			"latitude": "-19.92430657270007",
+			"longitude": "-43.978120547754685",
+			"latitude": " -19.933024666436495",
       		"caracteristicas": [
         		{
 					"estacionamento": "sim",
