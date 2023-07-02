@@ -177,6 +177,10 @@ a .pricetext p{
     color: grey;
 }
 
+.productlist{
+    margin-bottom: 100px;
+}
+
 /*
 
 ############# FOOTER/RODAPÉ
@@ -188,6 +192,9 @@ footer {
     background: cyan;
     justify-content: space-between;
     border-top: 2px solid black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 footer a {
